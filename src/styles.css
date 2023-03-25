@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.footer
+{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: blue;
+    text-align: center;
+    color:#fff;
+}
+label,.form-group
+{
+    margin-bottom: 0.5rem;
+}
+th,td{
+    text-align: center !important;
+}
+.navbar-nav
+{
+    margin: 0 auto;
+}

@@ -1,0 +1,32 @@
+<h2> Customer Data</h2>
+<table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" dt-instance="dtInstance"
+    class="table table-striped row-border hover">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Id</th>
+            <th>Date & Time</th>
+            <th>Account Number</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.emailId}}</td>
+            <td>{{employee.dateTime}}</td>
+            <td>{{employee.accountNum}}</td>
+            <td>{{employee.balance}}</td>
+            <td>
+                <button (click)="updateEmployee(employee.id)" class="btn btn-info">Pay</button>
+                <!--<button (click)="deleteEmployee(employee.id)" class="btn btn-danger"
+                    style="margin-left: 10px;">Delete</button> -->
+                <button (click)="employeeDetails(employee.id)" class="btn btn-success"
+                    style="margin-left: 10px;">View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

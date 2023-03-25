@@ -1,0 +1,41 @@
+<h3>Transaction History:</h3>
+<div class="form-row">
+    <div class="form-group col-md-6" style=" display: flex; ">
+        <label>From Date:</label>&nbsp;
+        <input type="date" class="form-control" id="startDate" [(ngModel)]="employee.startDate" name="startDate"
+            style=" width: 75%; ">
+    </div>
+    <div class="form-group col-md-5" style=" display: flex; ">
+        <label>To Date:</label>&nbsp;
+        <input type="date" class="form-control" id="endDate" [(ngModel)]="employee.endDate" name="endDate"
+            style=" width: 75%; ">
+    </div>
+    <div class="form-group col-md-1">
+        <button (click)="getTransactionHistory()" class="btn btn-success" style=" width: 82px; ">Go</button>
+    </div>
+</div>
+<div *ngIf="isExist">
+    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" dt-instance="dtInstance"
+        class="table table-striped row-border hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+                <th>Date & Time</th>
+                <th>Account Number</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.emailId}}</td>
+                <td>{{employee.dateTime}}</td>
+                <td>{{employee.accountNum}}</td>
+                <td>{{employee.balance}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
