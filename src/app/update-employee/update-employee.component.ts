@@ -11,7 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateEmployeeComponent implements OnInit{
 
   id!: number;
+  selectedOption!: number;
   employee: Employee = new Employee();
+  employees1!: Employee[];
   constructor(private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -19,12 +21,20 @@ export class UpdateEmployeeComponent implements OnInit{
   ngOnInit(): void{
     this.id = this.route.snapshot.params['id'];
     this.employeeService.getEmployeeById(this.id).subscribe(data =>{
+      if(data.balance > 0)
+      {
+        data.balance = 0;
+      }
       this.employee = data;
-    }, error => console.log(error));
+    }, 
+    error => console.log(error));
+    this.employeeService.getAccountDetails().subscribe(data => {
+      this.employees1 = data;
+    });
   }
 
   onSubmit(){
-    this.employeeService.updateEmployee(this.id, this.employee).subscribe( data =>{
+    this.employeeService.updateEmployee(this.id, this.employee,this.selectedOption).subscribe( data =>{
       this.goToEmployeeList();
     }
     , error => console.log(error));

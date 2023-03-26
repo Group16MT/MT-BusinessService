@@ -22,6 +22,9 @@ export class EmployeeService {
       `endDate=${endDate}`
     }`);
   }
+  getAccountDetails(): Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(`${this.baseURL +`/accountDetails`}`);
+  }
   createEmployee(employee: Employee): Observable<Object>
   {
     return this.httpClient.post(`${this.baseURL}`, employee);
@@ -31,8 +34,8 @@ export class EmployeeService {
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
   }
 
-  updateEmployee(id: number, employee: Employee): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, employee);
+  updateEmployee(id: number, employee: Employee, selectedOption:number): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}?`+`selectedOption=${selectedOption}`, employee);
   }
 
   deleteEmployee(id: number): Observable<Object>{

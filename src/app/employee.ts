@@ -8,4 +8,5 @@ export class Employee {
     balance!: number;
     startDate!: string;
     endDate!: string;
+    selectedOption!: number;
 }
