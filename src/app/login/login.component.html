@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="login-page">
+
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="cont">
+
+                    <div class="row row-padding ">
+
+                        <p *ngIf="errorMsg" class="text-center"
+                            style="color:red;font-family: Siemens-Regular;font-size:14px">User Name / Password
+                            combination is not valid</p>
+                        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                            <div class="form-group">
+                                <label for="username" class="label-style ">User Name</label>
+                                <input type="text" required #userName="ngModel" class="form-control input-style"
+                                    autocomplete="off" id="username" placeholder="Enter Username " name="username"
+                                    [(ngModel)]="username">
+                                <label *ngIf="userName.control.hasError('required') && (userName.touched)"
+                                    class="alert  validation-message alert-lbl">Username cannot be empty</label>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="password" class="label-style">Password</label>
+                                <input type="password" required #passWord="ngModel" class="form-control input-style"
+                                    id="password" placeholder="Password" name="password" [(ngModel)]="password">
+                                <label *ngIf="passWord.control.hasError('required') && (passWord.touched)"
+                                    class="alert validation-message alert-lbl">Password cannot be empty</label>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary btn-style" [disabled]="!loginForm.form.valid">
+                                Login
+                            </button>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

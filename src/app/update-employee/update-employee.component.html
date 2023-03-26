@@ -1,46 +1,50 @@
-<div class="col-md-12">
-    <h3>From Customer:</h3>
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>First Name</label>
-                <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName" name="firstName"
-                    readonly>
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="col-md-12">
+        <h3>From Customer:</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName"
+                        name="firstName" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName"
+                        name="lastName" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Email Id</label>
+                    <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.emailId" name="emailId"
+                        readonly>
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label>Last Name</label>
-                <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName" name="lastName"
-                    readonly>
-            </div>
-            <div class="form-group col-md-4">
-                <label>Email Id</label>
-                <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.emailId" name="emailId"
-                    readonly>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>Account Number</label>
-                <input type="text" class="form-control" id="accountNum" [(ngModel)]="employee.accountNum"
-                    name="accountNum" readonly>
-            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Account Number</label>
+                    <input type="text" class="form-control" id="accountNum" [(ngModel)]="employee.accountNum"
+                        name="accountNum" readonly>
+                </div>
 
-        </div>
-        <h3>To Customer:</h3>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>Account Number</label>
-                <select type="text" class="form-control" id="accountNum" name="accountNum" [(ngModel)]="selectedOption">
-                    <option *ngFor="let employee1 of employees1">
-                        {{employee1.accountNum}}
-                    </option>
-                </select>
             </div>
-            <div class="form-group col-md-4">
-                <label>Transfer Amount</label>
-                <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="employee.balance">
-            </div>
-            <!-- <div class="form-group col-md-4">
+            <h3>To Customer:</h3>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Account Number</label>
+                    <select type="text" class="form-control" id="accountNum" name="accountNum"
+                        [(ngModel)]="selectedOption">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let employee1 of employees1">
+                            {{employee1.accountNum}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Transfer Amount</label>
+                    <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="employee.balance">
+                </div>
+                <!-- <div class="form-group col-md-4">
                 <label>Account Number</label>
                 <select type="text" class="form-control" id="accountNum" name="accountNum">
                     <option selected>Choose...</option>
@@ -48,7 +52,9 @@
                 </select>
             </div> -->
 
-        </div>
-        <button class="btn btn-success" type="submit">Submit</button>
-    </form>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
 </div>
+<app-footer></app-footer>

@@ -11,6 +11,12 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import {DataTablesModule} from 'angular-datatables';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +25,10 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     UpdateEmployeeComponent,
     DeleteEmployeeComponent,
     EmployeeDetailsComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,7 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     FormsModule,
     DataTablesModule
   ],
-  providers: [],
+  providers: [AuthGuardService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
