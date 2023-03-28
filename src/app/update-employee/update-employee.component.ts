@@ -11,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateEmployeeComponent implements OnInit{
 
   id!: number;
-  selectedOption!: number;
+  toAccountNumber!: number;
+  transferAmount!: number;
   employee: Employee = new Employee();
   employees1!: Employee[];
   constructor(private employeeService: EmployeeService,
@@ -29,12 +30,19 @@ export class UpdateEmployeeComponent implements OnInit{
     }, 
     error => console.log(error));
     this.employeeService.getAccountDetails().subscribe(data => {
+      console.log(data);
       this.employees1 = data;
     });
   }
 
   onSubmit(){
-    this.employeeService.updateEmployee(this.id, this.employee,this.selectedOption).subscribe( data =>{
+
+    // this.employeeService.updateEmployee(this.id, this.employee,this.toAccountNumber).subscribe( data =>{
+    //   console.log(this.toAccountNumber)
+    //   this.goToEmployeeList();
+    // }
+    console.log(this.employee)
+    this.employeeService.transaction(this.employee.id, this.toAccountNumber, this.transferAmount).subscribe( data =>{      
       this.goToEmployeeList();
     }
     , error => console.log(error));

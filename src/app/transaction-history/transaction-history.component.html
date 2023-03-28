@@ -21,22 +21,20 @@
             class="table table-striped row-border hover">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email Id</th>
                     <th>Date & Time</th>
-                    <th>Account Number</th>
+                    <th>From Account Number</th>
+                    <th>To Account Number</th>
+                    <th>Amount</th>
                     <th>Balance</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees">
-                    <td>{{employee.firstName}}</td>
-                    <td>{{employee.lastName}}</td>
-                    <td>{{employee.emailId}}</td>
-                    <td>{{employee.dateTime}}</td>
-                    <td>{{employee.accountNum}}</td>
-                    <td>{{employee.balance}}</td>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{transaction.dateTime}}</td>
+                    <td>{{transaction.fromAccountNum}}</td>
+                    <td>{{transaction.toAccountNum}}</td>
+                    <td>{{transaction.amount}}</td>
+                    <td>{{transaction.balance}}</td>
                 </tr>
             </tbody>
         </table>
