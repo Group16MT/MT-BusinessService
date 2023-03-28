@@ -4,11 +4,11 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-employee-details',
-  templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.css']
+  selector: 'app-account-details',
+  templateUrl: './account-details.component.html',
+  styleUrls: ['./account-details.component.css']
 })
-export class EmployeeDetailsComponent {
+export class AccountDetailsComponent {
 
   id!: number
 employee!: Employee

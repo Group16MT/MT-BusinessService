@@ -5,10 +5,10 @@ import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-create-employee',
-  templateUrl: './create-employee.component.html',
-  styleUrls: ['./create-employee.component.css']
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.css']
 })
-export class CreateEmployeeComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
 
   employee: Employee = new Employee()
   constructor(private employeeService: EmployeeService,

@@ -5,11 +5,11 @@ import {Employee} from '../employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  selector: 'app-account-list',
+  templateUrl: './account-list.component.html',
+  styleUrls: ['./account-list.component.css']
 })
-export class EmployeeListComponent implements OnInit {
+export class AccountListComponent implements OnInit {
   employees!: Employee[];
   dtoptions: DataTables.Settings={};
   dtInstance!: DataTables.Api;

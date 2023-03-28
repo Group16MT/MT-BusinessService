@@ -4,11 +4,11 @@ import { Employee } from '../employee';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-update-employee',
-  templateUrl: './update-employee.component.html',
-  styleUrls: ['./update-employee.component.css']
+  selector: 'app-create-transaction',
+  templateUrl: './create-transaction.component.html',
+  styleUrls: ['./create-transaction.component.css']
 })
-export class UpdateEmployeeComponent implements OnInit{
+export class CreateTransactionComponent implements OnInit{
 
   id!: number;
   toAccountNumber!: number;
