@@ -23,7 +23,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>Account Number</label>
-                    <input type="text" class="form-control" id="accountNum" [(ngModel)]="employee.accountNum"
+                    <input type="text" class="form-control" id="accountNum" [(ngModel)]="employee.id"
                         name="accountNum" readonly>
                 </div>
 
@@ -33,16 +33,16 @@
                 <div class="form-group col-md-4">
                     <label>Account Number</label>
                     <select type="text" class="form-control" id="accountNum" name="accountNum"
-                        [(ngModel)]="selectedOption">
+                        [(ngModel)]="toAccountNumber">
                         <option selected>Choose...</option>
                         <option *ngFor="let employee1 of employees1">
-                            {{employee1.accountNum}}
+                            {{employee1.id}}
                         </option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Transfer Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="employee.balance">
+                    <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="transferAmount">
                 </div>
                 <!-- <div class="form-group col-md-4">
                 <label>Account Number</label>
