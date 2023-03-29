@@ -11,9 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
-  {path: 'employees',canActivate: [AuthGuardService], component: AccountListComponent},
-  {path: 'create-employee',canActivate: [AuthGuardService], component: CreateAccountComponent},
-  {path: '', redirectTo: 'employees', pathMatch: 'full'},
+  {path: 'accounts',canActivate: [AuthGuardService], component: AccountListComponent},
+  {path: 'create-account',canActivate: [AuthGuardService], component: CreateAccountComponent},
+  {path: '', redirectTo: 'accounts', pathMatch: 'full'},
   {path: 'create-transaction/:id',canActivate: [AuthGuardService], component: CreateTransactionComponent},
   {path: 'account-details/:id',canActivate: [AuthGuardService], component: AccountDetailsComponent},
   {path: 'transaction-history',canActivate: [AuthGuardService], component: TransactionHistoryComponent},

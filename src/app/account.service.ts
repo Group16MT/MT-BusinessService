@@ -14,7 +14,7 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
   
-  getEmployeesList(): Observable<Account[]>{
+  getAccountsList(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.baseURL}`);
   }
   getTransactionHistory(startDate : string ,endDate : string): Observable<Transaction[]>{
@@ -27,17 +27,17 @@ export class AccountService {
   getAccountDetails(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.baseURL +`/accountDetails`}`);
   }
-  createEmployee(employee: Account): Observable<Object>
+  createAccount(account: Account): Observable<Object>
   {
-    return this.httpClient.post(`${this.baseURL}`, employee);
+    return this.httpClient.post(`${this.baseURL}`, account);
   }
 
-  getEmployeeById(id: number): Observable<Account>{
+  getAccountById(id: number): Observable<Account>{
     return this.httpClient.get<Account>(`${this.baseURL}/${id}`);
   }
 
-  updateEmployee(id: number, employee: Account, selectedOption:number): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}?`+`selectedOption=${selectedOption}`, employee);
+  updateAccount(id: number, account: Account, selectedOption:number): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}?`+`selectedOption=${selectedOption}`, account);
   }
 
   transaction(fromAccountNum:number, toAccountNum:number, amount: number): Observable<Object>{
@@ -49,9 +49,5 @@ export class AccountService {
     console.log(transaction)
     return this.httpClient.post(`${this.baseURL}/transactionaDetails`, transaction);
 
-  }
-
-  deleteEmployee(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 }

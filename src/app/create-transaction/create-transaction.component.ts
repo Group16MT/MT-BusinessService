@@ -21,7 +21,7 @@ export class CreateTransactionComponent implements OnInit{
 
   ngOnInit(): void{
     this.id = this.route.snapshot.params['id'];
-    this.accountService.getEmployeeById(this.id).subscribe(data =>{
+    this.accountService.getAccountById(this.id).subscribe(data =>{
       if(data.balance > 0)
       {
         data.balance = 0;
@@ -44,6 +44,6 @@ export class CreateTransactionComponent implements OnInit{
   }
 
   goToAccountsList(){
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/accounts']);
   }
 }

@@ -30,7 +30,7 @@ export class AccountListComponent implements OnInit {
   }
   
   private getAccounts(){
-    this.accountService.getEmployeesList().subscribe(data => {
+    this.accountService.getAccountsList().subscribe(data => {
       this.accounts = data;
       this.dtTrigger.next(null);
     });

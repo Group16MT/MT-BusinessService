@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this._authStatus = "Logged in successfully";
 
         // console.log(this._authStatus)
-        this.router.navigate(['/employees']);
+        this.router.navigate(['/accounts']);
       } else {
         this._authStatus = "Login failed";
         this.errorMsg = true;

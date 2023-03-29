@@ -18,7 +18,7 @@ export class AccountDetailsComponent {
     this.id = this.route.snapshot.params['id'];
 
     this.account = new Account();
-    this.accountService.getEmployeeById(this.id).subscribe(data => {
+    this.accountService.getAccountById(this.id).subscribe(data => {
       this.account = data;
     })
   }
