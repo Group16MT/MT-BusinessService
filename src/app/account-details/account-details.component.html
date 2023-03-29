@@ -1,25 +1,38 @@
 <app-header></app-header>
-<div class="container-fluid">
-    <h3>View Account Details</h3>
-    <div>
-        <div>
-            <label>Account Num. :</label> {{account.id}}
+<div class="container">
+    <div class="col-md-12">
+        <h3>View Account Details</h3>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Account Num. :</label>
+                <input type="text" class="form-control" value="{{account.id}}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label>First Name :</label>
+                <input type="text" class="form-control" value="{{account.firstName}}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Last Name :</label>
+                <input type="text" class="form-control" value="{{account.lastName}}" readonly>
+            </div>
         </div>
-        <div>
-            <label>First Name :</label> {{account.firstName}}
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Email Id :</label>
+                <input type="text" class="form-control" value="{{account.emailId}}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Creation Date :</label>
+                <input type="text" class="form-control" value="{{account.dateTime}}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Balance :</label>
+                <input type="text" class="form-control" readonly value="{{account.balance}} Rs">
+            </div>
         </div>
-        <div>
-            <label>Last Name :</label> {{account.lastName}}
-        </div>
-        <div>
-            <label>Email Id :</label> {{account.emailId}}
-        </div>
-        <div>
-            <label>Creation Date :</label> {{account.dateTime}}
-        </div>
-        <div>
-            <label>Balance :</label> {{account.balance}} Rs
-        </div>
+
     </div>
 </div>
+
 <app-footer></app-footer>
