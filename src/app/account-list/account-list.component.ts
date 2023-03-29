@@ -24,7 +24,7 @@ export class AccountListComponent implements OnInit {
   ngOnInit(): void {
     this.dtoptions={
       pagingType: 'full_numbers',
-      order : [3, "desc"]
+      order : [0, "desc"]
     };
     this.getAccounts();
   }
