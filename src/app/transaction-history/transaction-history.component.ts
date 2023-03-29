@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { Employee } from '../employee';
+import { Account } from '../account';
 import { Transaction } from '../transaction';
 import { EmployeeService } from '../employee.service';
 
@@ -19,7 +19,7 @@ export class TransactionHistoryComponent {
   @Output() valueChange = new EventEmitter<any>();
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
-    employee: Employee = new Employee()
+    employee: Account = new Account()
 
     
   ngOnInit(): void {

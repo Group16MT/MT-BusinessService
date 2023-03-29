@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import {Employee} from '../employee';
+import {Account} from '../account';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./account-list.component.css']
 })
 export class AccountListComponent implements OnInit {
-  employees!: Employee[];
+  employees!: Account[];
   dtoptions: DataTables.Settings={};
   dtInstance!: DataTables.Api;
   dtTrigger:Subject<any>=new Subject<any>();

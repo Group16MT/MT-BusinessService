@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
-import { Employee } from '../employee';
+import { Account } from '../account';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,8 +13,8 @@ export class CreateTransactionComponent implements OnInit{
   id!: number;
   toAccountNumber!: number;
   transferAmount!: number;
-  employee: Employee = new Employee();
-  employees1!: Employee[];
+  employee: Account = new Account();
+  employees1!: Account[];
   constructor(private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router) { }

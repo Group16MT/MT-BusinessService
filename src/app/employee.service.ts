@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Employee } from './employee';
+import { Account } from './account';
 import { Transaction } from './transaction';
 import { from } from 'form-data';
 
@@ -14,8 +14,8 @@ export class EmployeeService {
 
   constructor(private httpClient: HttpClient) { }
   
-  getEmployeesList(): Observable<Employee[]>{
-    return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+  getEmployeesList(): Observable<Account[]>{
+    return this.httpClient.get<Account[]>(`${this.baseURL}`);
   }
   getTransactionHistory(startDate : string ,endDate : string): Observable<Transaction[]>{
     return this.httpClient.get<Transaction[]>(`${this.baseURL +
@@ -24,19 +24,19 @@ export class EmployeeService {
       `endDate=${endDate}`
     }`);
   }
-  getAccountDetails(): Observable<Employee[]>{
-    return this.httpClient.get<Employee[]>(`${this.baseURL +`/accountDetails`}`);
+  getAccountDetails(): Observable<Account[]>{
+    return this.httpClient.get<Account[]>(`${this.baseURL +`/accountDetails`}`);
   }
-  createEmployee(employee: Employee): Observable<Object>
+  createEmployee(employee: Account): Observable<Object>
   {
     return this.httpClient.post(`${this.baseURL}`, employee);
   }
 
-  getEmployeeById(id: number): Observable<Employee>{
-    return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
+  getEmployeeById(id: number): Observable<Account>{
+    return this.httpClient.get<Account>(`${this.baseURL}/${id}`);
   }
 
-  updateEmployee(id: number, employee: Employee, selectedOption:number): Observable<Object>{
+  updateEmployee(id: number, employee: Account, selectedOption:number): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}?`+`selectedOption=${selectedOption}`, employee);
   }
 

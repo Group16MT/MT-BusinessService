@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Employee } from '../employee';
+import { Account } from '../account';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class CreateAccountComponent implements OnInit {
 
-  employee: Employee = new Employee()
+  employee: Account = new Account()
   constructor(private employeeService: EmployeeService,
     private router : Router) { }
 

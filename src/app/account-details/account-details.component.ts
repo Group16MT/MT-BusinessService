@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Employee } from '../employee';
+import { Account } from '../account';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -11,13 +11,13 @@ import { EmployeeService } from '../employee.service';
 export class AccountDetailsComponent {
 
   id!: number
-employee!: Employee
+employee!: Account
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
   ngOnInit(): void{
     this.id = this.route.snapshot.params['id'];
 
-    this.employee =  new Employee();
+    this.employee =  new Account();
     this.employeeService.getEmployeeById(this.id).subscribe(data => {
       this.employee = data;
     })
