@@ -10,13 +10,14 @@ import { from } from 'form-data';
 })
 export class AccountService {
 
-  private baseURL = "http://localhost:8080/api/v1/employees";
+  private baseURL = "http://localhost:8080/api/v1/accounts";
 
   constructor(private httpClient: HttpClient) { }
   
   getAccountsList(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.baseURL}`);
   }
+  
   getTransactionHistory(startDate : string ,endDate : string): Observable<Transaction[]>{
     return this.httpClient.get<Transaction[]>(`${this.baseURL +
       `/transactionaDetails?` +
@@ -27,6 +28,7 @@ export class AccountService {
   getAccountDetails(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.baseURL +`/accountDetails`}`);
   }
+
   createAccount(account: Account): Observable<Object>
   {
     return this.httpClient.post(`${this.baseURL}`, account);
@@ -48,6 +50,5 @@ export class AccountService {
     transaction.amount = amount;
     console.log(transaction)
     return this.httpClient.post(`${this.baseURL}/transactionaDetails`, transaction);
-
   }
 }
