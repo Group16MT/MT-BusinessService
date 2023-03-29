@@ -6,24 +6,24 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>First Name</label>
-                    <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName"
+                    <input type="text" class="form-control" id="firstName" [(ngModel)]="fromAccount.firstName"
                         name="firstName" readonly>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Last Name</label>
-                    <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName"
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="fromAccount.lastName"
                         name="lastName" readonly>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Email Id</label>
-                    <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.emailId" name="emailId"
+                    <input type="text" class="form-control" id="emailId" [(ngModel)]="fromAccount.emailId" name="emailId"
                         readonly>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>Account Number</label>
-                    <input type="text" class="form-control" id="accountNum" [(ngModel)]="employee.id"
+                    <input type="text" class="form-control" id="accountNum" [(ngModel)]="fromAccount.id"
                         name="accountNum" readonly>
                 </div>
 
@@ -35,8 +35,8 @@
                     <select type="text" class="form-control" id="accountNum" name="accountNum"
                         [(ngModel)]="toAccountNumber">
                         <option selected>Choose...</option>
-                        <option *ngFor="let employee1 of employees1">
-                            {{employee1.id}}
+                        <option *ngFor="let toAccount of toAccountList">
+                            {{toAccount.id}}
                         </option>
                     </select>
                 </div>
@@ -44,14 +44,6 @@
                     <label>Transfer Amount</label>
                     <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="transferAmount">
                 </div>
-                <!-- <div class="form-group col-md-4">
-                <label>Account Number</label>
-                <select type="text" class="form-control" id="accountNum" name="accountNum">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div> -->
-
             </div>
             <button class="btn btn-success" type="submit">Submit</button>
         </form>
