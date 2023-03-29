@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Account } from '../account';
 import { Transaction } from '../transaction';
-import { EmployeeService } from '../employee.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-transaction-history',
@@ -17,9 +17,9 @@ export class TransactionHistoryComponent {
   dtTrigger:Subject<any>=new Subject<any>();
   isExist: boolean = false;
   @Output() valueChange = new EventEmitter<any>();
-  constructor(private employeeService: EmployeeService,
+  constructor(private accountService: AccountService,
     private router: Router) {}
-    employee: Account = new Account()
+    account: Account = new Account()
 
     
   ngOnInit(): void {
@@ -27,9 +27,7 @@ export class TransactionHistoryComponent {
 
   getTransactionHistory(){
     
-    // let startDate ='2023-03-01';
-    // let endDate ='2023-03-31';
-    this.employeeService.getTransactionHistory(this.employee.startDate,this.employee.endDate).subscribe(data => {      
+    this.accountService.getTransactionHistory(this.account.startDate,this.account.endDate).subscribe(data => {      
       this.transactions = data;
       console.log(data);
       if(this.transactions.length !== 0){

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Account } from '../account';
-import { EmployeeService } from '../employee.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-account-details',
@@ -11,15 +11,15 @@ import { EmployeeService } from '../employee.service';
 export class AccountDetailsComponent {
 
   id!: number
-employee!: Account
-  constructor(private route: ActivatedRoute, private employeeService: EmployeeService) { }
+  account!: Account
+  constructor(private route: ActivatedRoute, private accountService: AccountService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.employee =  new Account();
-    this.employeeService.getEmployeeById(this.id).subscribe(data => {
-      this.employee = data;
+    this.account = new Account();
+    this.accountService.getEmployeeById(this.id).subscribe(data => {
+      this.account = data;
     })
   }
 
