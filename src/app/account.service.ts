@@ -17,7 +17,7 @@ export class AccountService {
   getAccountsList(): Observable<Account[]>{
     return this.httpClient.get<Account[]>(`${this.baseURL}`);
   }
-  
+
   getTransactionHistory(startDate : string ,endDate : string): Observable<Transaction[]>{
     return this.httpClient.get<Transaction[]>(`${this.baseURL +
       `/transactionaDetails?` +
@@ -49,6 +49,7 @@ export class AccountService {
     transaction.toAccountNum = toAccountNum;
     transaction.amount = amount;
     console.log(transaction)
+
     return this.httpClient.post(`${this.baseURL}/transactionaDetails`, transaction);
   }
 }

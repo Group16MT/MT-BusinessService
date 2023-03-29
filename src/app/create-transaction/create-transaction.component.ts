@@ -15,17 +15,14 @@ export class CreateTransactionComponent implements OnInit{
   transferAmount!: number;
   fromAccount: Account = new Account();
   toAccountList!: Account[];
+  errorMessage!: string;
   constructor(private accountService: AccountService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void{
     this.id = this.route.snapshot.params['id'];
-    this.accountService.getAccountById(this.id).subscribe(data =>{
-      if(data.balance > 0)
-      {
-        data.balance = 0;
-      }
+    this.accountService.getAccountById(this.id).subscribe(data =>{      
       this.fromAccount = data;
     }, 
     error => console.log(error));
@@ -40,7 +37,10 @@ export class CreateTransactionComponent implements OnInit{
     this.accountService.transaction(this.fromAccount.id, this.toAccountNumber, this.transferAmount).subscribe( data =>{      
       this.goToAccountsList();
     }
-    , error => console.log(error));
+    , err => {
+      console.error(err.error.message);
+      this.errorMessage = err.error.message;
+    });
   }
 
   goToAccountsList(){
