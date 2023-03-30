@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="container-fluid">
     <h3>Transaction History:</h3>
+    <h5 class="text-danger" *ngIf="errorMessage != ''">{{errorMessage}}</h5>
     <div class="form-row">
         <div class="form-group col-md-6" style=" display: flex; ">
             <label>From Date:</label>&nbsp;
@@ -15,7 +16,7 @@
         <div class="form-group col-md-1">
             <button (click)="getTransactionHistory()" class="btn btn-success" style=" width: 82px; ">Go</button>
         </div>
-    </div>
+    </div>    
     <div *ngIf="isExist">
         <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" dt-instance="dtInstance"
             class="table table-striped row-border hover">

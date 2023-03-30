@@ -15,7 +15,7 @@ export class CreateTransactionComponent implements OnInit{
   transferAmount!: number;
   fromAccount: Account = new Account();
   toAccountList!: Account[];
-  errorMessage!: string;
+  errorMessage: string = '';
   constructor(private accountService: AccountService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -34,7 +34,8 @@ export class CreateTransactionComponent implements OnInit{
 
   onSubmit(){
     console.log(this.fromAccount)
-    this.accountService.transaction(this.fromAccount.id, this.toAccountNumber, this.transferAmount).subscribe( data =>{      
+    this.accountService.transaction(this.fromAccount.id, this.toAccountNumber, this.transferAmount).subscribe( data =>{ 
+      this.errorMessage = '';
       this.goToAccountsList();
     }
     , err => {

@@ -16,6 +16,7 @@ export class TransactionHistoryComponent {
   dtInstance!: DataTables.Api;
   dtTrigger:Subject<any>=new Subject<any>();
   isExist: boolean = false;
+  errorMessage: string = '';
   @Output() valueChange = new EventEmitter<any>();
   constructor(private accountService: AccountService,
     private router: Router) {}
@@ -27,7 +28,8 @@ export class TransactionHistoryComponent {
 
   getTransactionHistory(){
     
-    this.accountService.getTransactionHistory(this.account.startDate,this.account.endDate).subscribe(data => {      
+    this.accountService.getTransactionHistory(this.account.startDate,this.account.endDate).subscribe(data => { 
+      this.errorMessage = '';
       this.transactions = data;
       console.log(data);
       if(this.transactions.length !== 0){
@@ -38,6 +40,9 @@ export class TransactionHistoryComponent {
         };
       }
       this.dtTrigger.next(null);
+    }, err => {
+      console.error(err.error.message);
+      this.errorMessage = err.error.message;
     });
   }
 

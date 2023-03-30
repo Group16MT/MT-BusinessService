@@ -11,6 +11,7 @@ import { AccountService } from '../account.service';
 export class CreateAccountComponent implements OnInit {
 
   account: Account = new Account()
+  errorMessage: string = '';
   constructor(private accountService: AccountService,
     private router : Router) { }
 
@@ -22,9 +23,13 @@ export class CreateAccountComponent implements OnInit {
   {
     this.accountService.createAccount(this.account).subscribe(data =>{
       console.log(data);
+      this.errorMessage = '';
       this.goToAccountsList();
     },
-    error => console.log(error));
+    err => {      
+      console.log(err.error.message);
+      this.errorMessage = err.error.message;
+    });
   }
 
   goToAccountsList(){
@@ -34,6 +39,6 @@ export class CreateAccountComponent implements OnInit {
   onSubmit()
   {
     console.log(this.account);
-    this.saveAccount();
+    this.saveAccount();   
   }
 }
